@@ -30,7 +30,7 @@ class Boy:
 class Ball:
     def __init__(self):
         self.x, self.y = random.randint(0, 800), random.randint(200, 600)
-        self.image = load_image('ball41x41.png')
+
 
     def update(self):
         if self.y > 70:
@@ -67,6 +67,11 @@ def reset_world():
     world += team
 
     balls = [Ball() for i in range(20)]
+    for i in range(20):
+        if i <= 10:
+            balls[i].image = load_image('ball41x41.png')
+        else:
+            balls[i].image = load_image('ball21x21.png')
     world += balls
 
 
