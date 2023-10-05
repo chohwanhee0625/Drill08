@@ -44,20 +44,29 @@ def reset_world():
     global world
 
     running = True
+    world = []
+
     grass = Grass()  # 클래스를 이용해서 객체를 찍어냄
+    world.append(grass)
+
     team = [Boy() for i in range(11)]  # list comprehension
+    world += team
+
 
 
 def render_world():
     clear_canvas()
-    grass.draw()
-    for boy in team: boy.draw()
+    #grass.draw()
+    #for boy in team: boy.draw()
+    for o in world: o.draw()
     update_canvas()
 
 
 def update_world():
-    grass.update()
-    for boy in team: boy.update()
+    #grass.update()
+    #for boy in team: boy.update()
+    for o in world:
+        o.update()
 
 
 open_canvas()
